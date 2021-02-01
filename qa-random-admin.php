@@ -26,6 +26,8 @@
 				qa_opt('random_question_number',qa_post_text('random_question_number'));
 				qa_opt('random_widget_title',qa_post_text('random_widget_title'));
 				$ok = qa_lang_html('admin/options_saved');
+			}elseif (qa_clicked('random_question_donate')) {
+				qa_redirect_raw('https://paypal.me/guangyuezhao');
 			}
 			
 			return array(		   
@@ -41,15 +43,15 @@
 						'tags' => 'NAME="random_widget_title"',
 						'value' => qa_opt('random_widget_title'),
 						'type' => 'text',
-					),array(
-						'type' => 'custom',
-						'html' => '<button><a href="https://paypal.me/guangyuezhao" target="_blank">Donate us</a></button>',
 					)
 				),
 				'buttons' => array(
 					array(
 						'label' => 'Save',
 						'tags' => 'NAME="random_question_save"',
+					),array(
+						'label' => 'Donate',
+						'tags' => 'NAME="random_question_donate"',
 					)
 				)
 			);
